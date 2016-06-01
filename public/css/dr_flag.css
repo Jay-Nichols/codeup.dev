@@ -1,0 +1,38 @@
+#flag {
+	width: 430px;
+	height: 200px;
+	border: 1px solid black;
+}
+
+.box {
+	width: 190px;
+	height: 90px;
+}
+
+#blue_upper {
+	background-color: #00f;
+	position: absolute;
+	top: 9px;
+}
+
+#blue_lower {
+	background-color:#00f;
+	position: absolute;
+	top: 120px;
+	left: 249px;
+}
+
+#red_upper {
+	background-color: #f00;
+	position: absolute;
+	top: 9px;
+	left: 249px;
+
+}
+
+#red_lower {
+	background-color: #f00;
+	position: absolute;
+	top: 120px;
+	left: 9px;
+}

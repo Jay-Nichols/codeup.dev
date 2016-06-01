@@ -1,0 +1,24 @@
+h1, h2 {
+	color: #F00;
+	text-decoration: underline;
+}
+
+body {
+	background-color: #FF2;
+}
+
+a:link {
+    color:red;
+}
+
+a:visited {
+    color:black;
+}
+
+a:hover {
+    color:blue;
+}
+
+a:active {
+    color:green;
+}

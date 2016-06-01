@@ -1,0 +1,13 @@
+.jumbotron {
+	text-align: center;
+	text-decoration: underline;
+	color: blue;
+}
+
+.container {
+	background-color: lightblue;
+}
+
+.row1 {
+	float: left;
+}

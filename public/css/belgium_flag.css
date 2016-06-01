@@ -1,0 +1,34 @@
+
+
+.flag {
+	height: 300px;
+	width: 300px;
+	border: 1px solid black;
+	position: relative;
+}
+
+.black {
+	height: 300px;
+	width: 100px;
+	background-color: #000;
+	position: absolute;
+	top: 9px;
+}
+
+.gold {
+	height: 300px;
+	width: 100px;
+	background-color: #ffd700;
+	position: absolute;
+	top: 9px;
+	left: 108px;
+}
+
+.red {
+	height: 300px;
+	width: 100px;
+	background-color: #c00;
+	position: absolute;
+	top: 9px;
+	left: 208px;
+}

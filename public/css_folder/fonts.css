@@ -1,0 +1,11 @@
+.background{
+	background-color: #ff0f12;
+}
+
+#googlefonts {
+	color: #fff;
+	text-decoration: underline;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 2em;
+}

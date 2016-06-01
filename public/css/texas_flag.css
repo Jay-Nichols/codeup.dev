@@ -1,0 +1,27 @@
+
+#flag {
+	height: 200px;
+	width: 400px;
+	background-color: red;
+	position: relative;
+}
+
+.white {
+	height: 100px;
+	width: 400px;
+	background-color: #fff;
+	position: absolute;
+	top: 0px;
+}
+
+.blue {
+	height: 200px;
+	width: 110px;
+	background-color: blue;
+	position: absolute;
+	top: 8px;
+
+}
+
+.star { 
+    
