@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>For Loop JS</title>
+	</head> 
+	<body>
+		<script>
+			"use strict";
+
+		
+			for (var i = 1; i <= 10; i++) {
+
+				var log = '';
+				for (var j = 1; j <= i; j++) {
+					if (i == 10) {
+						log += 0;
+					} else {
+						log += i;
+					}
+				};
+				console.log(log);
+			};
+
+
+			var rando = Math.ceil(Math.random()*10);
+			var solution;
+
+			for (var n = 1; n <= 10; n++) {
+
+				solution  = rando * n;
+				console.log(rando + 'x' + n + '=' + solution);
+			};
+
+
+
+
+			
+
+			for (var x = 1; x < 10; x++) {
+				var random = Math.floor(Math.random() * (200-20));
+				var numstate = " is odd";
+				if (random % 2 == 0) {
+					numstate = " is even";
+				};
+				console.log(random + numstate);
+			} 
+			
+
+			
+
+
+
+			for (var y = 100; y >= 5; y = y - 5) {
+			  console.log(y);
+			}
+
+		</script>
+	</body> 
+</html>

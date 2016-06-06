@@ -1,0 +1,69 @@
+<!DOCTYPE html
+<html>
+	<head>
+		<title>Debug Problem</title>
+	</head>
+	<body>
+
+
+		<script>
+		luckyNumber = Math.floor(Math.random()* 6);
+		var luckyNumber;
+		
+		
+
+		var count0 = 0;
+		var count1 = 0;
+		var count2 = 0;
+		var count3 = 0;
+		var count4 = 0;
+		var count5 = 0;
+		var count6 = 0;
+
+		for (var i = 0; i < 100; i++) {
+			luckyNumber = Math.floor(Math.random()* 6);
+			switch (luckyNumber) {
+				case 0:
+					count0++;
+					break;
+				case 1:
+					count1++;
+					break;
+				case 2:
+					count2++;
+					break;
+				case 3:
+					count3++;
+					break;
+				case 4:
+					count4++;
+					break;
+				case 5:
+					count5++;
+					break;
+				case 0:
+					count6++;
+					break;
+			}
+
+
+
+		}
+
+		console.log('0 appeared ' + count0 + ' times');
+		console.log('1 appeared ' + count1 + ' times');
+		console.log('2 appeared ' + count2 + ' times');
+		console.log('3 appeared ' + count3 + ' times');
+		console.log('4 appeared ' + count4 + ' times');
+		console.log('5 appeared ' + count5 + ' times');
+		console.log('6 appeared ' + count6 + ' times');
+
+		
+
+
+
+		
+
+		</script>
+	</body>
+</html>
