@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Objects JSON JS</title>
+	</head>
+	<body>
+		<script>
+
+		'use strict';
+
+			var books = [
+
+				{
+					'title': 'Catcher in the Rye',
+					'author': {
+						'firstName': 'JD',
+						'lastName': 'Salinger'
+					}
+
+				},
+
+				{
+					'title': 'Misery',
+					'author': {
+						'firstName': 'Stephen',
+						'lastName': 'King'
+					}
+				},
+
+				{
+					'title': 'Catch-22',
+					'author': {
+						'firstName': 'Joseph',
+						'lastName': 'Heller'
+					}
+				},
+				{
+					'title': 'To Kill a Mockingbird',
+					'author': {
+						'firstName': 'Harper',
+						'lastName': 'Lee'
+					}
+				},
+				{
+					'title': 'The Sun Also Rises',
+					'author': {
+						'firstName': 'Ernest',
+						'lastName': 'Hemmingway'
+					}
+				}
+
+			]
+			// todo:
+			// Create an array of objects that represent books.
+			// Each book should have a title and an author.
+			// The book author should be an object with a firstName and lastName.
+			// Be creative and add at least 5 books to the array
+			// var books = [todo];
+
+			// log out the books array
+			console.log(books);
+
+			books.forEach(function (book, firstName, lastName) {
+				console.log("Book: " + book.title);
+				console.log("Author First Name: " + book.author.firstName);
+				console.log("Author Last Name: " + book.author.lastName);
+				console.log("---");
+
+			});
+
+			// Loop through the array of books u_sing .forEach and print out the specified information about each one.
+			// start loop here
+			
+			// end loop here
+
+
+
+		</script>
+	</body>
+</html>
