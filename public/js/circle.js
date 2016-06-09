@@ -24,7 +24,7 @@
 
             console.log("Area of a circle with radius: " + this.radius + ", is: " + area);
         }
-    };
+    }; 
 
     // log info about the circle
     console.log("Raw circle information");

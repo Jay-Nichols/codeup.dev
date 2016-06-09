@@ -9,7 +9,7 @@
     	person.sayHello = function () {
     		console.log("Hello " + this.firstName + ' ' + this.lastName);
 
-    	};
+    	}; 
 
     person.sayHello();
     
