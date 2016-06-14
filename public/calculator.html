@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Calculator</title>
+	</head>
+	<body>
+
+
+		<div>
+			<textarea readonly id="leftOperand"name="leftOperand" rows="2" cols="8"></textarea>
+			<textarea readonly id="operator" name="operator" rows="2" cols="3"></textarea>
+			<textarea readonly id="rightOperand" name="rightOperand" rows="2" cols="8"></textarea>
+		</div>	
+		<div>		
+			<button type="submit" class="button">1</button>
+			<button type="submit" class="button">2</button>
+			<button type="submit" class="button">3</button>
+			<button type="submit" class="operatorButton">+</button>
+			<button type="submit" class="button">4</button>
+			<button type="submit" class="button">5</button>
+			<button type="submit" class="button">6</button>
+			<button type="submit" class="operatorButton">-</button>
+			<button type="submit" class="button">7</button>
+			<button type="submit" class="button">8</button>
+			<button type="submit" class="button">9</button>
+			<button type="submit" class="operatorButton">*</button>
+			<button type="submit" class="button">C</button>
+			<button type="submit" class="button">0</button>
+			<button type="submit" class="button" id="equalButton">=</button>
+			<button type="submit" class="operatorButton">/</button>
+		</div>
+
+	
+
+	<script>
+	"use strict";
+
+
+
+
+
+	var buttons = document.getElementsByClassName('button');
+	var operatorButtons = document.getElementsByClassName('operatorButton');
+	var equalButton = document.getElementById('equalButton');
+
+
+	var leftTextBox = function() {
+		if (document.getElementById('operator').value !== '') {
+			document.getElementById('rightOperand').value += this.innerText;
+		} else {
+			document.getElementById('leftOperand').value += this.innerText;
+		}
+	
+	};
+
+	
+
+
+	for (var i = 0; i < buttons.length; i++) {
+		var leftButtonListener = buttons[i].addEventListener('click', leftTextBox);
+	};
+
+
+
+	var middleTextBox = function () {
+		document.getElementById('operator').value += this.innerText;
+	};
+
+
+	for (var i = 0; i < operatorButtons.length; i++) {
+		var operatorButtonListener = operatorButtons[i].addEventListener('click', middleTextBox);
+	};
+
+ 	if () {
+ 		document.getElementById('leftOperand').value == 
+ 	}  
+	
+	
+
+	
+
+
+
+
+
+
+	
+
+
+
+
+		
+	// if (middleTextBox) {
+	// 	var removeLeftTextBoxListener = function() {
+	// 		listener.removeEventListener('click', leftTextBox);
+	// 	}
+	// };
+
+	// var rightTextBox = function() {
+	// 	document.getElementById('rightOperand').value += this.innerText;
+	// };
+
+
+
+
+
+	
+
+	
+
+
+	// if () {
+	// 	var removeleftTextBox = function() {
+	// 		addListener.removeleftTextBox('click', leftTextBox);
+	// 	}
+	// }
+
+
+
+
+// 	if (operatorTextBox) {
+// 		var removeleftTextBox = function () {
+// 			leftTextBox.removeEventListener('click', leftTextBox);
+// 	}
+// }
+
+
+// 	var operatorTextBox = function() {
+// 		document.getElementById('operator').value = this.innerText;
+// 	}
+
+
+
+
+
+	// var middleTextBox = function() {
+	// 	document.getElementById('operator').value = this.innerText
+	// };
+
+	// vor (var i = 0; i < operatorButtons.lenght; i++) {
+	// 	operatorButtons[i].addEventListener('click', operator);
+	// }
+	
+
+
+
+
+	
+
+
+
+
+
+
+	</script>
+	</body>
+</html>

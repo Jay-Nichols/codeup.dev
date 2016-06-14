@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>J Queary</title>
+
+	</head>
+	<body>
+		<div>
+
+			<h1>J Query Practice</h1>
+				<p id="para">Here's an unordered list:</p>
+
+				<ul id="unorderedList">
+					<li class="randomThing">Shoe</li>
+					<li class="randomThing">Tomato</li>
+					<li class="randomThing">Car</li>
+				</ul>
+
+
+
+				
+
+
+		</div>
+
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script>
+		window.onload = function() {
+			alert('The page has finished loading.');
+		}
+		$(document).ready(function() {
+			var $paragraph = $('#para');
+			alert($paragraph.text());
+		});
+
+
+		$(document).ready(function() {
+			var $unorderedList = $('#unorderedList');
+			alert($unorderedList);
+		});
+		</script>
+	</body>
+
+</html>
