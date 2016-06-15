@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Konami Code</title>
+
+</head>
+
+<body>
+
+<h1>Konami Code</h1>
+
+	<div>Enter Code Here</div>
+
+	<div>
+		
+		<input type="text" id="textfield" name="textfield">
+		
+	</div>
+
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<script>
+
+"use strict";
+
+
+var codeArray = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+var i = 0;
+
+$('#textfield').keyup(function(event){
+
+	
+	if (event.keyCode == codeArray[i]) {
+		i++;} else {
+			i = 0; alert("Wrong!");
+		} 
+
+	console.log(i, codeArray.length);
+
+	if (i == codeArray.length) {
+		alert("You have 30 lives!");
+	}
+
+});
+
+
+
+
+// for (var i = 0; i <= codeArray.length; i++) {
+// 	if (codeArray[i])
+// }
+</script>
+
+</body>
+</html>
