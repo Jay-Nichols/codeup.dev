@@ -10,11 +10,11 @@
 			<h1>J Query Practice</h1>
 				<p id="para">Here's an unordered list:</p>
 
-				<ul id="unorderedList">
-					<li class="randomThing">Shoe</li>
-					<li class="randomThing">Tomato</li>
-					<li class="randomThing">Car</li>
-				</ul>
+					<ul id="unorderedList">
+						<li class="randomThing">Shoe</li>
+						<li class="randomThing">Tomato</li>
+						<li class="randomThing">Car</li>
+					</ul>
 
 				<p class="codeup">Lorem ipsum dolor sit amet, incididunt ut labore et dolore magna aliqua., quis ut aliquip ex ea commodo.</p>
 
@@ -27,12 +27,23 @@
 
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script>
+			"use strict";
 			
-			$('h1, p, li').css('background-color', '#FF0');
-			
-		
+			$('h1').click(function() {
+				$(this).css('color', '#00F');
+				});	
 
+			$('p').dblclick(function() {
+				$(this).css('font-size', '18px');
+				});
 
+			$('li').hover(
+				function() {
+					$(this).css('color', 'red');
+				},
+				function() {
+					$(this).css('color', 'white');
+				});
 		</script>
 
 		
