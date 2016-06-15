@@ -27,22 +27,12 @@
 
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script>
-			window.onload = function() {
-			alert('The page has finished loading.');
-			}
-			
-			var $paragraph = $('#para');
-			alert($paragraph.text());
-			
-
-
-
-			var $unorderedList = $('#unorderedList');
-			alert($unorderedList);
-			
-
-			console.log($('.codeup').length);
-			$('.codeup').css('border', '1px red solid');
+			$('li').css('font-size', '20px');
+			$('h1').css('background-color', '#FF0');
+			$('p').css('background-color', '#FF0');
+			$('li').css('background-color', '#FF0');
+			var contents = $('h1').html();
+            alert(contents);
 		
 
 
