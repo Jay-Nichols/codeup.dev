@@ -10,6 +10,7 @@
 	</head>
 	<body>
 		<div>
+		<a class="toggle">Toggle</a>
 			<dl>
 				<dt>How old is the National Park System?</dt>
 					<dd class="invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916. Yellowstone National Park was established by an Act signed by President Ulysses S. Grant on March 1, 1872, as the nation's first national park. View the National Park System timeline.</dd>
@@ -51,9 +52,35 @@
 					<dd class="invisible">Before you head out, check with the national parks that you intend to visit. In many national parks, off-road driving is illegal. Where off-road driving is allowed, the National Park Service regulates it.</dd>
 
 			</dl>
-		</div>
 
-		<a class="toggle">Toggle</a>
+
+
+		</div>
+		<div>
+			<h3>National Parks</h3>
+				<ul>
+					<li>Arches</li>
+					<li>Badlands</li>
+					<li>Carlsbad Caverns</li>
+					<li>Denali</li>
+				</ul>
+
+			<h3>State Parks of Texas</h3>
+				<ul>
+					<li>Abilene</li>
+					<li>Big Bend</li>
+					<li>Choke Canyon</li>
+					<li>Davis Mountains</li>
+				</ul>
+			<h3>City of San Antonio Parks</h3>
+				<ul>
+					<li>Hardberger</li>
+					<li>Brackenridge</li>
+					<li>OP Schnabel</li>
+					<li>McAllister</li>
+				</ul>
+
+			</div>
 
 
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -63,8 +90,37 @@
 
 		$('.toggle').click(function (event) {
 			event.preventDefault();
-			$('dd').toggleClass('invisible');
+			$('dd').toggle();
 		});
+
+
+
+		
+		console.log($('ul'));
+
+		$('ul').each(function(index,element) {
+			$(this).children().first().css('font-weight', 'bold');
+		});
+
+
+
+		// $('li').each(function(index) {
+		// 	if(index == 0) {
+		// 		$(this).css('font-weight', 'bold');
+		// 	}
+	
+		// 
+
+		$('li').click(function (event) {
+			$('ul').each(function() {
+				$('li').hide();
+				$(this).parent().toggleClass('invisible');
+			});
+		});
+
+
+
+
 
 	</script>
 

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Xavier's School for Gifted Youngsters</title>
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous"
+    >
+</head>
+<body>
+<article class="container">
+    <header class="page-header">
+        <h1>Are you an awesome student? <small id="student-name"></small></h1>
+    </header>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody id="grades">
+                        <tr>
+                            <td>Average</td>
+                            <td id="student-average"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <form>
+                    <div class="form-group">
+                        <label for="name">What's your name?</label>
+                        <input type="text" class="form-control" id="name" placeholder="Name">
+                    </div>
+                    <button type="button" class="btn btn-default" id="save-name">
+                        Save
+                    </button>
+                </form>
+                <br>
+                <form>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" class="form-control" id="subject" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="grade">Grade</label>
+                        <input type="number" class="form-control" id="grade" placeholder="Grade">
+                    </div>
+                    <button type="button" class="btn btn-default" id="add-grade">
+                        Add and continue
+                    </button>
+                    <button type="button" class="btn btn-primary" id="calculate-average">
+                        Add and calculate average
+                    </button>
+                </form>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="hidden" id="student-awesome">
+                <div class="alert alert-info" role="alert">
+                    You're awesome!!!
+                </div>
+            </div>
+            <div class="hidden" id="student-practice">
+                <div class="alert alert-warning" role="alert">
+                    You need to practice more...
+                </div>
+            </div>
+        </div>
+    </section>
+</article>
+<script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"
+></script>
+<script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+    crossorigin="anonymous"
+></script>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<script>
+'use strict';
+
+var student = {
+    awesomeGrade: 80,
+    name: null,
+    subjects: [],
+    calculateAverage: function () {
+        var average = 0;
+        this.subjects.forEach(function (subject) {
+            average += subject.grade;
+        });
+        return average / this.subjects.length;
+    },
+    addSubject: function (name, grade) {
+        var subject = {
+            name: name,
+            grade: grade
+        };
+        this.subjects.push(subject);
+    },
+    isAwesome: function () {
+        return this.calculateAverage() > this.awesomeGrade;
+    }
+};
+
+var saveButton = $('#save-name');
+var addAndContinueButton = $('#add-grade');
+var addAndAverageButton = $('#calculate-average');
+
+function saveName() {
+    var studentName = $('#name');
+    student.name = studentName.value;
+    addAndContinueButton.removeAttribute('disabled');
+    addAndAverageButton.removeAttribute('disabled');
+    document.getElementById('student-name').innerText = student.name;
+}
+
+function noGavin() {
+    var subjectName = $('#subject');
+    var subjectGrade = $('#grade');
+
+    student.addSubject(subjectName.value, parseInt(subjectGrade.value));
+
+    var tableBody = document.getElementById('grades');
+    tableBody.innerHTML = '<tr><td>' + subjectName.value + '</td><td>' + subjectGrade.value + '</td></tr>' + tableBody.innerHTML;
+
+    subjectName.value = '';
+    subjectGrade.value = '';
+}
+
+function noAbbreviationsGavin() {
+    noGavin();
+    var average = student.calculateAverage();
+    $('#student-average').innerText = average;
+
+    if (student.isAwesome()) {
+        $('#student-awesome').removeAttribute('class');
+        $('#student-practice').setAttribute('class', 'hidden');
+    } else {
+        $('#student-practice').removeAttribute('class');
+        $('#student-awesome').setAttribute('class', 'hidden');
+    }
+
+    addAndContinueButton.setAttribute('disabled', true);
+    addAndAverageButton.setAttribute('disabled', true);
+}
+
+$('#saveName').click(saveName);
+$('#add-grade').click(noGavin);
+$('#calculate-average').click(noAbbreviationsGavin);
+</script>
+</body>
+</html>
