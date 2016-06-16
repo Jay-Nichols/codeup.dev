@@ -10,7 +10,6 @@
 	</head>
 	<body>
 		<div>
-		<a class="toggle">Toggle</a>
 			<dl>
 				<dt>How old is the National Park System?</dt>
 					<dd class="invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916. Yellowstone National Park was established by an Act signed by President Ulysses S. Grant on March 1, 1872, as the nation's first national park. View the National Park System timeline.</dd>
@@ -54,6 +53,7 @@
 			</dl>
 
 
+		<a class="toggle">Toggle</a>
 
 		</div>
 		<div>
@@ -89,18 +89,25 @@
 
 
 		$('.toggle').click(function (event) {
-			event.preventDefault();
-			$('dd').toggle();
+			$('dd').fadeIn();
 		});
+
+		
+		$('h3').click(function() {
+		 	$(this).next().fadeToggle();
+		});
+		
+
+		
 
 
 
 		
-		console.log($('ul'));
+		// console.log($('ul'));
 
-		$('ul').each(function(index,element) {
-			$(this).children().first().css('font-weight', 'bold');
-		});
+		// $('ul').each(function(index,element) {
+		// 	$(this).children().first().css('font-weight', 'bold');
+		// });
 
 
 
@@ -111,12 +118,12 @@
 	
 		// 
 
-		$('li').click(function (event) {
-			$('ul').each(function() {
-				$('li').hide();
-				$(this).parent().toggleClass('invisible');
-			});
-		});
+		// $('li').click(function (event) {
+		// 	$('ul').each(function() {
+		// 		$('li').hide();
+		// 		$(this).parent().toggleClass('invisible');
+		// 	});
+		// });
 
 
 
