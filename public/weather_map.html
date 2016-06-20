@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Weather Map</title>
+    	<link rel="stylesheet" href="/css/weather_map.css">
+	</head>
+	<body>
+	<h2>San Antonio Weather</h2>
+	<h3>June 20, 2016</h3>
+		<div id="container">
+			<div id="temperature"></div>
+			<div id="humidity"></div>
+			<div id="windSpeed"></div>
+			<div id="pressure"></div>
+		</div>
+
+
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+	"use strict";
+	(function() {
+
+
+
+		$.get("http://api.openweathermap.org/data/2.5/weather", {
+
+			"APPID": "efc1a00e7362ad0fe4f4c9a7fa9d296d",
+
+			"q": "San Antonio, TX",
+
+			"units": "imperial"
+
+		}).done(function(weather) {
+			var emptyString = '';
+			console.log(weather);
+			
+			console.log(weather.main.temp);
+			
+			$('#temperature').html((weather.main.temp) + " F");
+			$('#humidity').html((weather.main.humidity) + " %");
+			$('#windSpeed').html((weather.wind.speed) + " mph");
+			$('#pressure').html((weather.main.pressure) + " hPa");
+
+
+		});
+
+
+
+	})();
+
+	</script>
+
+
+
+
+
+	</body>
+
+
+</html>
+
