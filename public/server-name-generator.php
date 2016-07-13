@@ -28,7 +28,7 @@ $serverName = "{$randomAdjective} {$randomNoun}";
 </head>
 <body>
 	<h1 id="header">Server Name Generator</h1>
-	<h1 id="serverName"><?php echo $serverName; ?></h1> 
+	<h1 id="serverName"><?= $serverName; ?></h1> 
 
 </body>
 </html>
