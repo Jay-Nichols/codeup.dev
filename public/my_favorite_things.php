@@ -1,7 +1,16 @@
 <?php
 
-$favoriteThings = ['Playing guitar', 'Sleeping', 'Running in the park', 'Daytime highs in the 70s', 'Working out'];
+function pageController() {
 
+	$data = [];
+	$data['favoriteThings'] = ['Playing guitar', 'Sleeping', 'Running in the park', 'Daytime highs in the 70s', 'Working out'];
+
+
+	return $data;
+	//return ['Playing guitar', 'Sleeping', 'Running in the park', 'Daytime highs in the 70s', 'Working out'];
+}
+
+extract(pageController());
 ?>
 <!DOCTYPE html>
 <html>
