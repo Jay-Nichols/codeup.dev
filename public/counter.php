@@ -3,12 +3,17 @@
 // $i = 0;
 
 // $test = $i++;
-if (isset($_GET['count'])) {
-	$count = $_GET['count'];
-} else {
-	$count = 0;
+
+function pageController() {
+	if (isset($_GET['count'])) {
+		$count = $_GET['count'];
+	} else {
+		$count = 0;
+	}
+	return ['count' => $count];
 }
 
+extract(pageController());
 
 ?>
 
