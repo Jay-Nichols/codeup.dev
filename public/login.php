@@ -38,13 +38,6 @@ if(!empty($_POST)){
 
 	<div class="login-page">
 		<div class="form">
-		<!-- 	<form class="register-form">
-				<input type="text" placeholder="name"/>
-				<input type="password" placeholder="password"/>
-				<input type="text" placeholder="email address"/>
-	  			<button>create</button>
-	  			<p class="message">Already registered? <a href="#">Sign In</a></p>
-			</form> -->
 			<form method="POST" action="login.php" class="login-form">
 	  			<input type="text" name="userName" placeholder="username"/>
 	  			<input type="password" name="password" placeholder="password"/>
@@ -53,24 +46,17 @@ if(!empty($_POST)){
 			</form>
   		</div>
 	</div>
-	 <!-- <form method="POST" action="login.php">
-		<label for="username">User Name</label>
-		<input type="text" id="username" name="userName" placeholder="Enter your User Name"><br>
-		<label for="password">Password</label>
-		<input type="password" id="password" name="password" placeholder="Enter your Password"><br>
-		<button type="submit">Login</button>
-	</form> -->
 
 	<h1><?= $message; ?><h1>
 
  <script>
-// "use strict";
+"use strict";
 
 $('.message a').click(function(){
    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
 });
 
-// alert(<?= $message; ?>);
+
 
 </script>
 </body>
