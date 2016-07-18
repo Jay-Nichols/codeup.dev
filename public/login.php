@@ -1,10 +1,16 @@
-<?PHP
+<?php
+		
+session_start();
+if (isset($_SESSION['userName'])) {
+	header('Location: authorized.php');
+	exit;
+}
 
-
-if(!empty($_POST)){
+if (!empty($_POST)){
 	$userName = $_POST['userName'];
 	$password = $_POST['password'];
 	if ($userName == 'guest' && $password == 'password') {
+		$_SESSION['userName'] = $userName;
 		header('Location: authorized.php');
 		exit;
 	} else {
@@ -17,7 +23,6 @@ if(!empty($_POST)){
 
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
