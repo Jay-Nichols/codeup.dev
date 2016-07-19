@@ -1,26 +1,24 @@
 <?php
-		
-session_start();
-if (isset($_SESSION['userName'])) {
-	header('Location: authorized.php');
-	exit;
-}
+require "functions.php";
 
-if (!empty($_POST)){
-	$userName = $_POST['userName'];
-	$password = $_POST['password'];
+function pageController() {
+	session_start();
+
+	$userName = inputGet('userName');
+	$password = inputGet('password');
 	if ($userName == 'guest' && $password == 'password') {
 		$_SESSION['userName'] = $userName;
 		header('Location: authorized.php');
 		exit;
+	} elseif ($userName === null && $password === null) {
+		$message = "";
 	} else {
 		$message = "Not a Valid Password.";
 	}
-
-} else {
-	$message = "";
+	return ['message' => $message];
 }
 
+extract(pageController());
 
 ?>
 
