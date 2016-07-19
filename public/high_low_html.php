@@ -1,46 +1,47 @@
 <?php
 
-session_start();
-function clearSession()
-{
-    // clear $_SESSION array
-    session_unset();
+function pageController() {
+    session_start();
+    function clearSession()
+    {
+        // clear $_SESSION array
+        session_unset();
 
-    // delete session data on the server
-    session_destroy();
+        // delete session data on the server
+        session_destroy();
 
-    // ensure client is sent a new session cookie
-    session_regenerate_id();
+        // ensure client is sent a new session cookie
+        session_regenerate_id();
 
-    // start a new session - session_destroy() ended our previous session so
-    // if we want to store any new data in $_SESSION we must start a new one
-    // session_start();
+        // start a new session - session_destroy() ended our previous session so
+        // if we want to store any new data in $_SESSION we must start a new one
+        // session_start();
+    }
+
+    if (!isset($_SESSION['randomNumber'])) {
+        $_SESSION['randomNumber'] = mt_rand(1, 100);
+    }
+
+    if (isset($_POST['guess'])) {
+        $guess = $_POST['guess'];
+    }   else {
+        $guess = null;
+    }
+
+    if ($guess === null) {
+        $message = "New Game";
+    } elseif ($guess < $_SESSION['randomNumber']) {
+        $message = "Higher";
+    } elseif ($guess > $_SESSION['randomNumber']) {
+        $message = "Lower";
+    } else {
+        $message = "Correct Guess"; 
+        clearSession();   
+    }
+    return['message' => $message];
 }
 
-if (!isset($_SESSION['randomNumber'])) {
-    $_SESSION['randomNumber'] = mt_rand(1, 100);
-}
-
-if (isset($_POST['guess'])) {
-    $guess = $_POST['guess'];
-}   else {
-    $guess = null;
-}
-
-var_dump($_SESSION);
-
-if ($guess === null) {
-    $message = "New Game";
-} elseif ($guess < $_SESSION['randomNumber']) {
-    $message = "Higher";
-} elseif ($guess > $_SESSION['randomNumber']) {
-    $message = "Lower";
-} else {
-    $message = "Correct Guess"; 
-    clearSession();   
-}
-
-
+extract(pageController());
 
 ?>
 
