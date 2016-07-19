@@ -1,8 +1,9 @@
 <?php
+require "functions.php";
 
 function pageController() {
-	if (isset($_GET['count'])) {
-		$count = $_GET['count'];
+	if (inputHas('count')) {
+		$count = inputGet('count');
 	} else {
 		$count = 0;
 	}
