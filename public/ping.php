@@ -1,9 +1,9 @@
 <?php
-require "functions.php";
+require_once "../src/input.php";
 
 function pageController() {
-	if (inputHas('count')) {
-		$count = inputGet('count');
+	if (Input::has('count')) {
+		$count = Input::get('count');
 	} else {
 		$count = 0;
 	}
