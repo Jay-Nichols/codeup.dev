@@ -1,22 +1,29 @@
 <?php
 
-$adjectiveArray = ['Clumsy', 'Sickly', 'Drunk', 'Orange', 'Tiresome', 'Annoying', 'Amateur', 'Exciting', 'Spicy', 'Taciturn'];
-$nounArray = ['Horse', 'Reebok', 'Florida', 'Brick', 'Stationery', 'Volkswagon', 'Mattress', 'Guitar', 'Air-Conditioner', 'Kettle Bell'];
 
-function shuffleAdjective($adjective) {
-	shuffle($adjective);
-	return $adjective[0];
+function pageController() {
+
+	function shuffleAdjective($adjective) {
+		shuffle($adjective);
+		return $adjective[0];
+	}
+
+	function shuffleNoun($noun) {	
+		shuffle($noun);
+		return $noun[0];
+	}
+
+	$adjectiveArray = ['Clumsy', 'Sickly', 'Drunk', 'Orange', 'Tiresome', 'Annoying', 'Amateur', 'Exciting', 'Spicy', 'Taciturn'];
+
+	$nounArray = ['Horse', 'Reebok', 'Florida', 'Brick', 'Stationery', 'Volkswagon', 'Mattress', 'Guitar', 'Air-Conditioner', 'Kettle Bell'];
+
+	$randomAdjective = shuffleAdjective($adjectiveArray);
+	$randomNoun = shuffleNoun($nounArray);
+
+	return ['randomAdjective' => $randomAdjective, 'randomNoun' => $randomNoun];
 }
 
-function shuffleNoun($noun) {
-	shuffle($noun);
-	return $noun[0];
-}
-
-$randomAdjective = shuffleAdjective($adjectiveArray);
-$randomNoun = shuffleNoun($nounArray);
-
-$serverName = "{$randomAdjective} {$randomNoun}";
+extract(pageController());
 
 ?>
 <!DOCTYPE html>
@@ -28,7 +35,7 @@ $serverName = "{$randomAdjective} {$randomNoun}";
 </head>
 <body>
 	<h1 id="header">Server Name Generator</h1>
-	<h1 id="serverName"><?= $serverName; ?></h1> 
+	<h1 id="serverName"><em><?= $randomAdjective ?></em> <?= $randomNoun ?></h1> 
 
 </body>
 </html>
