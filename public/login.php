@@ -1,24 +1,30 @@
 <?php
 require "functions.php";
+require_once "../src/Auth.php";
+
 
 function pageController() {
 	session_start();
 
+	
+	if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$userName = inputGet('userName');
 	$password = inputGet('password');
-	if ($userName == 'guest' && $password == 'password') {
-		$_SESSION['userName'] = $userName;
-		header('Location: authorized.php');
-		exit;
-	} elseif ($userName === null && $password === null) {
-		$message = "";
-	} else {
-		$message = "Not a Valid Password.";
+	Auth::attempt($userName, $password) ? header('Location: authorized.php') : header('Location: login.php');
+	exit;
 	}
-	return ['message' => $message];
+	// if ($userName == 'guest' && $password == 'password') {
+	// 	$_SESSION['userName'] = $userName;
+	// 	exit;
+	// } elseif ($userName === null && $password === null) {
+	// 	$message = "";
+	// } else {
+	// 	$message = "Not a Valid Password.";
+	// }
+	// return ['message' => $message];
 }
 
-extract(pageController());
+pageController();
 
 ?>
 
@@ -50,7 +56,7 @@ extract(pageController());
   		</div>
 	</div>
 
-	<h1><?= $message; ?><h1>
+	<!-- <h1><?= $message; ?><h1> -->
 
  <script>
 "use strict";
