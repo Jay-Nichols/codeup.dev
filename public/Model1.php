@@ -2,6 +2,12 @@
 
 class Model
 {
+	protected static $table;
+	
+	public static function getTableName()
+	{
+		return static::$table;
+	}
 
 	private $attributes = [];
 
@@ -25,5 +31,5 @@ $test->name = 'Jay Nichols';
 $test->age = 37;
 $test->gender = 'M';
 
-var_dump($test);
+// var_dump($test);
 
