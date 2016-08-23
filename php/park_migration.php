@@ -1,6 +1,6 @@
 <?php
 
-require "db_connect.php";
+require_once "db_connect.php";
 
 
 $query = 'DROP TABLE IF EXISTS national_parks';
@@ -13,6 +13,7 @@ $parksTable = 'CREATE TABLE national_parks (
     location VARCHAR(240) NOT NULL,
     date_established DATE,
     area_in_acres DECIMAL(10,2),
+    description TEXT,
     PRIMARY KEY (id)
     )';
 

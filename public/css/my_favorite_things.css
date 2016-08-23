@@ -1,0 +1,16 @@
+body {
+	text-align: center;	
+	background-color:  #6666ff;
+}
+
+h1 {
+	font-family: verdana;
+	color: white;
+	font-size: 3em;
+}
+
+table {
+	font-size: 2em;
+	margin-left: auto;
+	margin-right: auto;
+}

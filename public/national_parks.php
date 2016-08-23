@@ -1,50 +1,137 @@
 <?php
 require_once "../php/db_connect.php";
-require_once "../php/park_migration.php";
-require_once "../php/park_seeder.php";
+//require_once "../php/park_migration.php";
+//  require_once "../php/park_seeder.php";
 require_once "../src/Input.php";
 
 function pageController($dbc) 
 {
+$parks = [];
+$page = 1;
+try {
 
-
-$page = !(Input::has('page')) ? 1 : max([Input::get('page', 1), 1]);
+$page = !(Input::has('page')) ? 1 : max([Input::getNumber('page', 1), 1]);
 $offset = $page * 4 - 4;
-
-var_dump($offset);
-
-
-$query = "SELECT * FROM national_parks ORDER BY name ASC LIMIT 4 offset {$offset}";
+$query = "SELECT * FROM national_parks LIMIT 4 offset {$offset}";
 var_dump($query);
 
 $stmt = $dbc->prepare($query); 
-
 $stmt->execute();
-
-
-// $stmt = $dbc->query("SELECT * FROM national_parks ORDER BY name ASC LIMIT 4 offset {$offset} ");
-
-$parks = [];
 while ($park = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $parks[] = $park;
 }
 
+} catch (Exception $e) {
+  echo 'An error occurred: ' . $e->getMessage();
+}
 
-var_dump($_POST);
+
+// $stmt = $dbc->query("SELECT * FROM national_parks ORDER BY name ASC LIMIT 4 offset {$offset} ");
+
+$errors = [];
 
 if(!empty($_POST)) {
-  $query = "INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)";
+  try {
+    $name = Input::getString('name');
+  } catch (InvalidArgumentException $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } catch (OutOfRangeException $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } catch (DomainException $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } catch (LengthException $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } catch (Exception $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  }
+  try {
+    $location = Input::getString('location');
+  } catch (InvalidArgumentException $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } catch (OutOfRangeException $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } catch (DomainException $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } catch (LengthException $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } catch (Exception $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  }
+  try {
+    $date_established = Input::getString('date_established');
+  } catch (Exception $e) {
+    array_push($errors, 'An error occurred' . $e->getMessage());
+  } 
+  try {
+    $area_in_acres = Input::getString('area_in_acres');
+  } catch (InvalidArgumentException $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } catch (OutOfRangeException $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } catch (DomainException $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } catch (RangeException $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } catch (Exception $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } 
 
-  $stmt = $dbc->prepare($query);
-  $stmt->bindValue(':name', $_POST['name'], PDO::PARAM_STR);
-  $stmt->bindValue(':location', $_POST['location'], PDO::PARAM_STR);
-  $stmt->bindValue(':date_established', $_POST['date_established'], PDO::PARAM_STR);
-  $stmt->bindValue(':area_in_acres', $_POST['area_in_acres'], PDO::PARAM_STR);
-  $stmt->bindValue(':description', $_POST['description'], PDO::PARAM_STR);
-  $stmt->execute();
-} 
+  try {
+    $description = Input::getString('name');
+  } catch (InvalidArgumentException $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } catch (OutOfRangeException $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } catch (DomainException $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } catch (LengthException $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  } catch (Exception $e) {
+    array_push($errors, 'An error occurred: ' . $e->getMessage());
+  }
+}
+  // rest of try catches
 
-return ['parks' => $parks, 'page' => $page];
+  if (!empty($_REQUEST)) {
+    $query = "INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)";
+    $stmt = $dbc->prepare($query);
+
+    $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+    $stmt->bindValue(':location', $location, PDO::PARAM_STR);
+    $stmt->bindValue(':date_established', $date_established, PDO::PARAM_STR);
+    $stmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_STR);
+    $stmt->bindValue(':description', $description, PDO::PARAM_STR);
+    $stmt->execute();
+    
+}
+
+//   try {
+//   } catch(Exception $e) {
+//     array_push($errors, 'An error occurred' . $e->getMessage());
+//   }
+//   try {
+//   } catch(Exception $e) {
+//     array_push($errors, 'An error occurred' . $e->getMessage());
+//   }
+//   try {
+//   } catch(Exception $e) {
+//     array_push($errors, 'An error occurred' . $e->getMessage());
+//   }
+//   try {
+//   } catch(Exception $e) {
+//     array_push($errors, 'An error occurred' . $e->getMessage());
+//   }
+//   try { 
+//   } catch(Exception $e) {
+//     array_push($errors, 'An error occurred' . $e->getMessage());
+//   }
+// } else {
+//   var_dump('?');
+// }
+
+// var_dump($errors);
+
+return ['parks' => $parks, 'page' => $page, 'errors' => $errors];
 
 
 
@@ -133,8 +220,11 @@ extract(pageController($dbc));
                        name="name"
                        id="name"
                        placeholder="Add Park"
-                       
-                   >
+                       <?php if (!empty($errors)): ?>
+                        value="<?php Input::get('name') ?>"
+                       <?php endif; ?>
+                       >
+                   
                </div>
            </div>
            <div class="form-group">
@@ -148,6 +238,9 @@ extract(pageController($dbc));
                        name="location"
                        id="location"
                        placeholder="Add Park Location"
+                       <?php if (!empty($errors)): ?>
+                        value="<?php Input::get('location') ?>"
+                       <?php endif; ?>
                        
                    >
                </div>
@@ -163,6 +256,9 @@ extract(pageController($dbc));
                        name="date_established"
                        id="date_established"
                        placeholder="Date Established"
+                       <?php if (!empty($errors)): ?>
+                        value="<?php Input::get('date_established') ?>"
+                       <?php endif; ?>
                        
                    >
                </div>
@@ -178,6 +274,9 @@ extract(pageController($dbc));
                        name="area_in_acres"
                        id="area_in_acres"
                        placeholder="Area in Acres"
+                       <?php if (!empty($errors)): ?>
+                        value="<?php Input::get('area_in_acres') ?>"
+                       <?php endif; ?>
                        
                    >
                </div>
@@ -193,6 +292,9 @@ extract(pageController($dbc));
                        name="description"
                        id="description"
                        placeholder="Description"
+                       <?php if (!empty($errors)): ?>
+                        value="<?php Input::get('description') ?>"
+                       <?php endif; ?>
                       
                    >
                </div>

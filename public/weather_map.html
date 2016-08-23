@@ -9,7 +9,7 @@
 	<h3>June 20, 2016</h3>
 		<div id="container">
 			<div id="temperature"></div>
-			<div id="humidity"></div>
+			<div id="weatherCondition"></div>
 			<div id="windSpeed"></div>
 			<div id="pressure"></div>
 		</div>
@@ -22,26 +22,25 @@
 
 
 
-		$.get("http://api.openweathermap.org/data/2.5/weather", {
+		$.get("http://api.openweathermap.org/data/2.5/forecast/daily&mode=xml&units=metric&cnt=3", {
 
-			"APPID": "efc1a00e7362ad0fe4f4c9a7fa9d296d",
+			APPID: "efc1a00e7362ad0fe4f4c9a7fa9d296d",
 
-			"q": "San Antonio, TX",
+			q: "San Antonio, TX",
+			
 
-			"units": "imperial"
+			units: "imperial"
 
-		}).done(function(weather) {
-			var emptyString = '';
+		}).done(function (weather) {
 			console.log(weather);
+			$('#temperature').html(weather.list[0].main.temp);
+			$('#humidity').html(weather.list[0].main.humidity);
 			
-			console.log(weather.main.temp);
+
+			for (var i = 0; i < weather.list; i++) {
+				console.log(weather.list);
+			};
 			
-			$('#temperature').html((weather.main.temp) + " F");
-			$('#humidity').html((weather.main.humidity) + " %");
-			$('#windSpeed').html((weather.wind.speed) + " mph");
-			$('#pressure').html((weather.main.pressure) + " hPa");
-
-
 		});
 
 

@@ -2,13 +2,19 @@
 
 class Log
 {
-	public $fileName;
-	public $handle;
+	private $fileName;
+	private $handle;
 
 	public function __construct($prefix = 'log') {
 		$this->fileName = $prefix . date('Y-m-d') . '.log';
 		$this->handle = fopen($this->fileName, 'a');
 	}
+
+	public function setFileName($fileName) {
+		$this->fileName = is_string($fileName);
+	}
+
+	
 
 	public function logMessage($logLevel, $message) {
 		$formattedMessage = date('Y-m-d H:i:s') . "[$logLevel] $message";

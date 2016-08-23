@@ -1,0 +1,21 @@
+
+body {
+	background-color: #00cc66;
+}
+
+
+#header {
+	text-align: center;
+	color: white;
+	font-family: verdana;
+}
+
+#serverName {
+	text-align: center;
+	color: white;
+	font-family: verdana;
+	font-size: 3em;
+}
+
+
+
