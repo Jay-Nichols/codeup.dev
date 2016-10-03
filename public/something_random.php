@@ -12,9 +12,9 @@ $randomThings = ['harpsichord', 'eternity', 'violets', 'drowsy'];
 <body>
 <h1>Here's a list</h1>
 	<ul>	
-	<?php foreach ($randomThings as $thing) { ?>
-		<li><?php echo $thing; ?></li>
-	<?php } ?>
+	<?php foreach ($randomThings as $thing): ?>
+		<li><?= $thing; ?></li>
+	<?php endforeach; ?>
 	</ul>
 
 </body>
