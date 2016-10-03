@@ -1,8 +1,11 @@
 <?php
 
+function pageController() {
 $randomThings = ['harpsichord', 'eternity', 'violets', 'drowsy'];
 
-
+return ['things' => $randomThings];
+}
+extract(pageController());
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,7 +15,7 @@ $randomThings = ['harpsichord', 'eternity', 'violets', 'drowsy'];
 <body>
 <h1>Here's a list</h1>
 	<ul>	
-	<?php foreach ($randomThings as $thing): ?>
+	<?php foreach ($things as $thing): ?>
 		<li><?= $thing; ?></li>
 	<?php endforeach; ?>
 	</ul>
