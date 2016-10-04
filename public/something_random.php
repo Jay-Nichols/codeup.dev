@@ -9,7 +9,7 @@ function pageController() {
 		$something = "This text is in the query string";
 	}
 
-	return ['things' => $randomThings, 'readthis' => $something];
+	return ['things' => $randomThings, 'textGoesHere' => $something];
 }
 extract(pageController());
 ?>
@@ -31,9 +31,9 @@ extract(pageController());
     <button type="submit">Go!</button>
 </form>
 <div>
-	<h1><a href="something_random.php?readthis=<?= $readthis; ?>">Click here to add a query string</a></h1>
-	<h2>This should be in the query string: <?= $readthis; ?></h2>
-	
+	<h1><a href="something_random.php?readthis=<?= $textGoesHere; ?>">Click here to add a query string</a></h1>
+	<h2>This should be in the query string: <?= $textGoesHere; ?></h2>
 </div>
+
 </body>
 </html>
