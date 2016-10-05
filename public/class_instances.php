@@ -2,6 +2,7 @@
 
 require_once 'classes.php';
 
+echo Band::saying();
 //instance of the Band class
 $band1 = new Band("Guns N' Roses");
 
@@ -42,6 +43,9 @@ echo $band3->genre . PHP_EOL;
 echo $band3->yearsActive . PHP_EOL;
 echo implode(', ', $band3->members) . PHP_EOL;
 echo $band3->tellMeSomethingAboutThem();
+
+
+echo Costume::message();
 
 $costume1 = new Costume("halloween");
 
