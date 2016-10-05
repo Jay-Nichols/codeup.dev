@@ -3,7 +3,7 @@
 require_once 'classes.php';
 
 //instance of the Band class
-$band1 = new Band();
+$band1 = new Band("Guns N' Roses");
 
 $band1->name = "Guns N' Roses";
 $band1->genre = "Hard rock";
@@ -16,7 +16,7 @@ echo $band1->yearsActive . PHP_EOL;
 echo implode(', ', $band1->members) . PHP_EOL;
 echo $band1->tellMeSomethingAboutThem();
 
-$band2 = new Band();
+$band2 = new Band("Led Zeppelin");
 
 $band2->name = "Led Zeppelin";
 $band2->genre = "Hard rock";
@@ -30,7 +30,7 @@ echo $band2->yearsActive . PHP_EOL;
 echo implode(', ', $band2->members) . PHP_EOL;
 echo $band2->tellMeSomethingAboutThem();
 
-$band3 = new Band();
+$band3 = new Band("The Who");
 
 $band3->name = "The Who";
 $band3->genre = "Hard rock";
@@ -43,7 +43,7 @@ echo $band3->yearsActive . PHP_EOL;
 echo implode(', ', $band3->members) . PHP_EOL;
 echo $band3->tellMeSomethingAboutThem();
 
-$costume1 = new Costume();
+$costume1 = new Costume("halloween");
 
 $costume1->occasion = "Halloween";
 $costume1->type = "nurse";
@@ -54,7 +54,7 @@ echo $costume1->type . PHP_EOL;
 echo $costume1->style . PHP_EOL;
 echo $costume1->somethingPositive() . PHP_EOL;
 
-$costume2 = new Costume();
+$costume2 = new Costume("being scared");
 
 $costume2->occasion = "freaking out people";
 $costume2->type = "clown";

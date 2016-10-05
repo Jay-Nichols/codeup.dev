@@ -2,6 +2,14 @@
 
 Class Band 
 {
+	public function __construct($name) 
+	{
+		echo "------------" . PHP_EOL . "Here's some info on: " . $this->name = $name . PHP_EOL . "------------" . PHP_EOL;
+	}
+	public function __destruct()
+	{
+		echo "I finished talking about {$this->name} at " . date('Y-m-d H:i:s') . PHP_EOL;
+	}
 	public $name;
 	public $genre;
 	public $yearsActive;
@@ -16,6 +24,15 @@ Class Band
 
 Class Costume 
 {
+	public function __construct($occasion)
+	{
+		echo "-----------" . PHP_EOL . "Everybody loves " . $this->occasion = $occasion . PHP_EOL . "------------" . PHP_EOL;
+	}
+	public function __destruct()
+	{
+		echo "I finished talking about {$this->occasion} at " . date('Y-m-d H:i:s') . PHP_EOL;
+	}
+
 	public $occasion;
 	public $type;
 	public $style;
