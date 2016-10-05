@@ -8,10 +8,10 @@ function pageController() {
 
 	
 	if($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$userName = inputGet('userName');
-	$password = inputGet('password');
-	Auth::attempt($userName, $password) ? header('Location: authorized.php') : header('Location: login.php');
-	exit;
+		$userName = inputGet('userName');
+		$password = inputGet('password');
+		Auth::attempt($userName, $password) ? header('Location: authorized.php') : header('Location: login.php');
+		exit();
 	}
 	// if ($userName == 'guest' && $password == 'password') {
 	// 	$_SESSION['userName'] = $userName;
