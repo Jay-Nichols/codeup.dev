@@ -4,7 +4,6 @@ function pageController() {
 		header('Location: practice_form.php');
 		exit();
 	}
-
 	return['name' => $_SESSION['logged_in_user']];
 }
 session_start();
