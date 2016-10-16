@@ -40,27 +40,24 @@
 		var rightOperandValue = document.getElementById('rightOperand').value;
 
 		//variables selecting buttons
-		var buttons = document.getElementsByClassName('button');
-		var operatorButtons = document.getElementsByClassName('operatorButton');
+		var buttons = document.getElementsByClassName('button').innerHTML;
+		var operatorButtons = document.getElementsByClassName('operatorButton').innerHTML;
 		console.log(buttons);
 
 
 		var leftTextBox = function() {
-			if(leftOperandValue == '' && operatorValue == '' && rightOperandValue == '' ) {
-				document.getElementById('leftOperand').innerText;
-				console.log(document.getElementById('leftOperand').innerText);
+			if (leftOperandValue == '' && operatorValue == '' && rightOperandValue == '') {
+				for (var i = 0; i < buttons.length; i++) {
+					var listenerForLeftTextBox = buttons[i].addEventListener('click', listener);
+					console.log(buttons);
+					var listener = function() {
+					leftOperandValue == listenerForLeftTextBox;
+				}
+				
+				
 			} 
 		}
 
-		var listener = function() {
-           	alert("works");
-        }
-		
-		for (var i = 0; i < buttons.length; i++) {
-			console.log(buttons[i]);
-			var listenerForLeftTextBox = buttons[i].addEventListener('click', listener);
-			console.log(listenerForLeftTextBox);
-		}
 
 
 	// var buttons = document.getElementsByClassName('button');
