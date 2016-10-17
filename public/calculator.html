@@ -42,19 +42,17 @@
 		//variables selecting buttons
 		var buttons = document.getElementsByClassName('button').innerHTML;
 		var operatorButtons = document.getElementsByClassName('operatorButton').innerHTML;
-		console.log(buttons);
+		
 
 
 		var leftTextBox = function() {
 			if (leftOperandValue == '' && operatorValue == '' && rightOperandValue == '') {
 				for (var i = 0; i < buttons.length; i++) {
 					var listenerForLeftTextBox = buttons[i].addEventListener('click', listener);
-					console.log(buttons);
 					var listener = function() {
 					leftOperandValue == listenerForLeftTextBox;
-				}
-				
-				
+					}
+				}								
 			} 
 		}
 
