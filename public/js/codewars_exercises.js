@@ -21,15 +21,15 @@
 
 
 function openOrSenior(data){
-  var dataArray = data;
-  var resultsArray = [];
-  dataArray.forEach(function (element) {
+	var dataArray = data;
+	var resultsArray = [];
+	dataArray.forEach(function (element) {
 	if (element[0] >= 55 && element[1] > 7) {
-	  resultsArray.push('Senior');
+		resultsArray.push('Senior');
 	} else {
-	  resultsArray.push('Open');
+		resultsArray.push('Open');
 	}
-  });
+	});
 	console.log(resultsArray);
 }
 
@@ -47,11 +47,11 @@ openOrSenior([[18, 20],[45, 2],[61, 12],[37, 6],[21, 21],[78, 9]]);
 // otherwise	'Hello guest'
 
 function greet (name, owner) {
-  if (name == owner) {
-    console.log("Hello boss");
-  } else {
-    console.log("Hello guest");
-  }
+	if (name == owner) {
+		console.log("Hello boss");
+	} else {
+		console.log("Hello guest");
+	}
 }
 
 greet('Daniel', 'Daniel');
@@ -125,11 +125,11 @@ validateCode(8);
 // 'found the needle at position 5'
 
 function findNeedle(haystack) {
-  	haystack.forEach(function (needle, index) {
-  		if (needle === 'needle') {
-  		console.log("found the needle at position " + index);
-  		}
-  });
+		haystack.forEach(function (needle, index) {
+			if (needle === 'needle') {
+			console.log("found the needle at position " + index);
+			}
+	});
 }
 
 
@@ -242,36 +242,60 @@ grow([2, 2, 2, 2, 2, 2]);
 // PS. regex should be case insensitive to pass the tests
 
 function validateHello(greetings) {
-  switch (greetings){
-  	case 'hello':
-  		console.log(true);
-  		break;
-  	case 'ciao':
-  		console.log(true);
-  		break;
-  	case 'salut':
-  		console.log(true);
-  		break;
-  	case 'hallo':
-  		console.log(true);
-  		break;
-  	case 'hola':
-  		console.log(true);
-  		break;
-  	case 'ahoj':
-  		console.log(true);
-  		break;
-  	case 'czesc':
-  		console.log(true);
-  	default:
-  		console.log(false);
+	switch (greetings){
+		case 'hello':
+			console.log(true);
+			break;
+		case 'ciao':
+			console.log(true);
+			break;
+		case 'salut':
+			console.log(true);
+			break;
+		case 'hallo':
+			console.log(true);
+			break;
+		case 'hola':
+			console.log(true);
+			break;
+		case 'ahoj':
+			console.log(true);
+			break;
+		case 'czesc':
+			console.log(true);
+		default:
+			console.log(false);
 
-  }
+	}
 }
 
 
 validateHello('ahoj');
 
 validateHello('meh');
+
+
+// Welcome. In this kata, you are asked to square every digit of a number.
+
+// For example, if we run 9119 through the function, 811181 will come out.
+
+// Note: The function accepts an integer and returns an integer
+
+function squareDigits(num) {
+	var numberString = num.toString();
+	var numbersWithCommas = numberString.split('');
+	console.log(numbersWithCommas);
+	numbersWithCommas.forEach(function (element) {
+			var squaredNumber = (parseInt(element) * parseInt(element));
+			console.log(squaredNumber);
+	})
+}
+
+squareDigits(9119);
+
+
+
+
+
 
 
