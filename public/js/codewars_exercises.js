@@ -295,7 +295,28 @@ squareDigits(9119);
 
 
 
+// x Simple, given a string of words, return the length of the shortest word(s).
+
+// String will never be empty and you do not need to account for different data types.
 
 
 
+function findShort(s){
+	var emptyArray = [];
+	var stringInArray = s.split(" ");
+	console.log(stringInArray);
+	for (var i = 0; i < stringInArray.length; i++) {
+		var elementLength = stringInArray[i].length;
+		console.log(elementLength);
+		var toString = elementLength.toString();
+		console.log(toString);
+		var stringWithCommas = toString.split();
+		console.log(stringWithCommas);
+		var pushedArray = emptyArray.push(stringWithCommas);
+		console.log(pushedArray); 
+		
+	}
+}
 
+findShort("bitcoin take over the world maybe who knows perhaps");
+findShort("turns out random test cases are easier than writing out basic ones");
