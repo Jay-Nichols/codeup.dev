@@ -31,5 +31,5 @@ $test->name = 'Jay Nichols';
 $test->age = 37;
 $test->gender = 'M';
 
-// var_dump($test);
+var_dump($test);
 
