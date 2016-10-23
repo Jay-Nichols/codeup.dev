@@ -3,16 +3,42 @@
 <head>
 	<meta charset="utf-8">
 	<title>Angular Practice</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 </head>
 <body>
 	<div>
       	<label>Name:</label>
       	<input type="text" ng-model="yourName" placeholder="Enter a name here">
       	<hr>
-      	<h1>Hello {{ "jadsf" }}!</h1>
+      	<h1>Hello {{ yourName }}!</h1>
     </div>
+    <div>
+	    <ul>
+		    <li ng-if="1 < 2">One is Less Than Two</li>
+		    <li ng-if="1 <= 2">One is Less Than or Equal to Two</li>
+		    <li ng-if="1 == 2">One is Equal to Two</li>
+		    <li ng-if="1 >= 2">One is Greater Than or Equal to Two</li>
+		    <li ng-if="1 > 2">One is Greater Than Two</li>
+		</ul>
+	</div>
+	<div>
+		<ol>
+    		<li ng-repeat="letter in ['A', 'B', 'C', 'D', 'E', 'F']">{{ letter }}</li>
+		</ol>
+	</div>
+	<div>
+		<ul>
+    		<li ng-repeat="num in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" ng-if="num % 2 == 0">
+        {{ num }} is even!
+    		</li>
+		</ul>
+	</div>
+	<div>
+		<img ng-src="{{ 'img/beachbackground.jpg' }}" alt="beach">
+		<img ng-src="img/{{ 'car.jpg' }}" alt="car">
+		<img ng-src="img/{{ 'codeup-arrow' }}.png" alt="codeup arrow">
+	</div>
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    
+    <script src="/js/angular.js"></script>
 </body>
 </html>
