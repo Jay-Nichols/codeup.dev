@@ -320,3 +320,35 @@ function findShort(s){
 
 findShort("bitcoin take over the world maybe who knows perhaps");
 findShort("turns out random test cases are easier than writing out basic ones");
+
+
+
+// Ben has a very simple idea to make some profit: he buys something and sells it again. Of course, this wouldn't give him any profit at all if he was simply to buy and sell it at the same price. Instead, he's going to buy it for the lowest possible price and sell it at the highest.
+
+// Task
+
+// Write a function that returns both the minimum and maximum number of the given list/array.
+
+function minMax(arr){
+	console.log("--------");
+  var resultsArray = [];
+  var inNumericOrder = arr.sort(function(a,b) {
+  	return a - b;
+  });
+  console.log(inNumericOrder);
+  var lowestNumber = inNumericOrder[0];
+  console.log(lowestNumber);
+  var highestNumber = inNumericOrder[inNumericOrder.length - 1];
+  console.log(highestNumber);
+  var bothNumbers = lowestNumber + "," + highestNumber;
+  console.log(bothNumbers);
+  var highLow = resultsArray.push(bothNumbers);
+  console.log(highLow);
+
+}
+
+minMax([5,2,8,67,9]);
+minMax([2348910,5]);
+
+
+
