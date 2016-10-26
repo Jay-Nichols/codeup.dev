@@ -351,4 +351,22 @@ minMax([5,2,8,67,9]);
 minMax([2348910,5]);
 
 
+// Write a function which removes from string all non-digit characters and parse the remaining to number. E.g: "hell5o wor6ld" -> 56
+
+function getNumberFromString(s) {
+	console.log("--------");
+	console.log(Number(s.replace(/\D/g, "")));
+
+}
+
+getNumberFromString("1");
+getNumberFromString("123");
+getNumberFromString("this is number: 7");
+
+
+
+
+
+
+
 
