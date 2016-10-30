@@ -121,3 +121,46 @@ Class Persons
 }
 $new_person = new Persons("Jay", "37", "future lottery winner");
 Persons::greet_extraterrestrials();
+
+
+class Salesman extends Persons
+{
+	public function __construct($name, $age)
+	{
+		parent::__construct($name, $age, "salesman");
+	}
+	public function introduce()
+	{
+		return parent::introduce() . ", don't forget to check out my products!";
+	}
+
+}
+
+class ComputerProgrammer extends Persons
+{
+	public function __construct($name, $age)
+	{
+		parent::__construct($name, $age, "computer programmer");
+	}
+	public function describe_job()
+	{
+		return parent::describe_job() . ", don't forget to check out my Codewars account ;)";
+	}
+}
+
+class WebDeveloper extends ComputerProgrammer
+{
+	public function __construct($name, $age)
+	{
+		parent::__construct($name, $age, "web developer");
+	}
+	public function describe_job()
+	{
+		return parent::describe_job() . " And don't forget to check on my website :D";
+	}
+	public function describe_website()
+	{
+		return "My professional world-class website is made from HTML, CSS, Javascript and PHP!";
+	}
+}
+
