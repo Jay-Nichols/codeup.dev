@@ -164,3 +164,118 @@ class WebDeveloper extends ComputerProgrammer
 	}
 }
 
+//visibility / get and set functions
+Class Persons
+{
+	protected $name;
+	protected $age;
+	protected $occupation;
+
+	public function __construct($name, $age, $occupation)
+	{
+		$this->name = $name;
+		$this->age = $age;
+		$this->occupation = $occupation;
+
+		if (!is_string($name)) {
+			throw new Exception("Name must be a string!");
+		}
+
+		if (is_int($age) && $age < 0) {
+			throw new Exception("Age must be a non-negative integer!");
+		}
+
+		if (!is_string($occupation)) {
+			throw new Exeption("Occupation must be a string!");
+		}
+	}
+
+	public function get_name() 
+	{
+		return $name;
+	}
+
+	public function get_age() 
+	{
+		return $age;
+	}
+
+	public function get_occupation() 
+	{
+		return $occupation;
+	}
+
+	public function set_name($name)
+	{
+		if (is_string($name)) {
+			return $name;
+		} else {
+			throw new Exception("Name must be a string!");
+		}
+	}
+
+	public function set_age($age)
+	{
+		if (is_int($age) && $age > 0) {
+			return $age;
+		} else {
+			throw new Exception("Age must be a non-negative integer!");
+		}
+	}
+
+	public function set_occupation($occupation)
+	{
+		if (is_string($occupation)) {
+			return $occupation;
+		} else {
+			throw new Exception("Occupation must be a string!");
+		}
+	}
+
+}
+
+
+
+//using final keyword
+
+
+Class Persons
+{
+	const species = "Homo Sapiens";
+
+	public $name;
+	public $age;
+	public $occupation;
+
+	public function __construct($name, $age, $occupation)
+	{
+		$this->name = $name;
+		$this->age = $age;
+		$this->occupation = $occupation;
+	}
+
+	public function introduce()
+	{
+		echo "Hello, my name is $name";
+	}
+
+	final public function describe_job()
+	{
+		echo "I am currently working as a(n) $this->occupation";
+	}
+
+	final public static function greet_extraterrestrials()
+	{
+		echo "Welcome to planet Earth" . " " . self::species;
+	}
+
+}
+
+Class ComputerProgrammer extends Persons
+{
+	public function introduce()
+	{
+		echo "Hello, my name is $name, and I am a $occupation";
+	}
+} 
+
