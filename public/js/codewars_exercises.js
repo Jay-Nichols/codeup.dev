@@ -405,7 +405,7 @@ function calculateTip(amount, rating) {
 }
 
 calculateTip(20, "Excellent");
-calculateTip(26.95, "good");
+calculateTip(26.95, "Good");
 
 
 
