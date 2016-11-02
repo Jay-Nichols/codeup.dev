@@ -279,3 +279,92 @@ Class ComputerProgrammer extends Persons
 	}
 } 
 
+// working with interfaces
+
+interface CanFly
+{
+	public function fly();
+}
+
+interface CanSwim
+{
+	public function swim();
+}
+
+interface CanClimb 
+{
+	public function climb();
+}
+
+interface CanGreet
+{
+	public function greet($name);
+	
+}
+
+interface CanIntroduce
+{
+	public function speak();
+	public function introduce();
+}
+
+interface CanSpeek
+{
+	public function speak()
+}
+
+Class Bird implements CanFly
+{
+	public $name;
+	public function fly()
+	{
+		return "I am flying";
+	}
+
+	public function __construct($name)
+	{
+		$this->name = $name;
+	}
+
+	public function chirp()
+	{
+		return "Chirp chirp";
+	}
+}
+
+Class Duck extends Bird implements CanFly, CanSwim
+{
+	public function __construct()
+	{
+		return $this->name = $name;
+	}
+
+	
+	public function chirp()
+	{
+		return "Chirp chirp";
+	}
+
+	public function swim()
+	{
+		return "Splash! I am swimming";
+	}
+}
+
+Class Cat implements CanClimb
+{
+	public function climb()
+	{
+		return "Look, I'm climbing a tree";
+	}
+
+	public function meow()
+	{
+		return "Meow, meow";
+	}
+
+	public function play($name)
+	{
+		return "Hey " . $name . ", lets' play!";
+	}
+}
