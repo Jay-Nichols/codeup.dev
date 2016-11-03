@@ -308,9 +308,9 @@ interface CanIntroduce
 	public function introduce();
 }
 
-interface CanSpeek
+interface CanSpeak
 {
-	public function speak()
+	public function speak();
 }
 
 Class Bird implements CanFly
@@ -318,7 +318,7 @@ Class Bird implements CanFly
 	public $name;
 	public function fly()
 	{
-		return "I am flying";
+		echo "I am flying";
 	}
 
 	public function __construct($name)
@@ -328,7 +328,7 @@ Class Bird implements CanFly
 
 	public function chirp()
 	{
-		return "Chirp chirp";
+		echo "Chirp chirp";
 	}
 }
 
@@ -336,18 +336,18 @@ Class Duck extends Bird implements CanFly, CanSwim
 {
 	public function __construct()
 	{
-		return $this->name = $name;
+		echo $this->name = $name;
 	}
 
 	
 	public function chirp()
 	{
-		return "Chirp chirp";
+		echo "Chirp chirp";
 	}
 
 	public function swim()
 	{
-		return "Splash! I am swimming";
+		echo "Splash! I am swimming";
 	}
 }
 
@@ -355,16 +355,57 @@ Class Cat implements CanClimb
 {
 	public function climb()
 	{
-		return "Look, I'm climbing a tree";
+		echo "Look, I'm climbing a tree";
 	}
 
 	public function meow()
 	{
-		return "Meow, meow";
+		echo "Meow, meow";
 	}
 
 	public function play($name)
 	{
-		return "Hey " . $name . ", lets' play!";
+		echo "Hey " . $name . ", lets' play!";
+	}
+}
+
+Class Dog implements CanSwim, CanGreet
+{
+	public function swim()
+	{
+		echo "I'm swimming, woof woof";
+	}
+
+	public function greet($name)
+	{
+		echo "Hello " . $name . ", welcome to my home";
+
+	}
+
+	public function bark()
+	{
+		echo "Woof woof";
+	}
+}
+
+Class Person implements CanGreet, CanIntroduce
+{
+	public $name;
+	public $age;
+	public $occupation;
+
+	public function greet($name)
+	{
+		echo "Hello " . $name . ", welcome to my home";
+	}
+
+	public function speak()
+	{
+		echo "What am I supposed to say again?";
+	}
+
+	public function introduce()
+	{
+		echo "Hello, my name is " . $name . ", I am " . $age . " years old and I am currently working as a(n) " . $occupation;
 	}
 }
