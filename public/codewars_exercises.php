@@ -264,6 +264,8 @@ Class Persons
 		echo "I am currently working as a(n) $this->occupation";
 	}
 
+
+
 	final public static function greet_extraterrestrials()
 	{
 		echo "Welcome to planet Earth" . " " . self::species;
@@ -407,5 +409,86 @@ Class Person implements CanGreet, CanIntroduce
 	public function introduce()
 	{
 		echo "Hello, my name is " . $name . ", I am " . $age . " years old and I am currently working as a(n) " . $occupation;
+	}
+}
+
+
+//working with abstract classes
+
+abstract class Person
+{
+	public $name;
+	public $age;
+	public $gender;
+
+	public function __construct($name, $age, $gender)
+	{
+		$this->name = $name;
+		$this->age = $age;
+		$this->gender = $gender;
+	} 
+
+	abstract public function introduce();
+
+	public function greet($name)
+	{
+		return "Hello $name";
+	}
+
+}
+
+final class Child extends Person
+{
+	public $aspirations = ['win lottery', 'play guitar', 'retire early'];
+
+	public function __construct()
+	{	
+		$this->name = $name;
+		$this->age = $age;
+		$this->gender = $gender;
+		$this->aspirations = $aspirations;	
+	}
+
+	public function introduce()
+	{
+		return "Hi, I'm $name and I am $age years old";
+	}
+
+	public function greet($name)
+	{
+		return  "Hi $name, let's play!";
+	}
+
+	public function say_dreams()
+	{
+		return "I would like to be a(n) $aspirations when I grow up.";
+	}
+
+}
+
+class ComputerProgrammer extends Person
+{
+	public $occupation = "Computer Programmer";
+
+	public function __construct($name, $age, $gender)
+	{
+		$this->name = $name;
+		$this->age = $age;
+		$this->gender = $gender;
+	} 
+
+	public function introduce()
+	{
+		return "Hello, my name is $name, I am $age years old and I am a(n) $occupation";
+	}
+
+	public function greet($name)
+	{
+		return "Hello $name, I'm $name, nice to meet you";
+	}
+
+	public function advertise()
+	{
+		return "Don't forget to check out my coding projects";
 	}
 }
