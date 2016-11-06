@@ -436,3 +436,18 @@ feuerFrei(5,20);
 feuerFrei(5,200);
 feuerFrei(3,20);
  
+
+ // Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
+
+ function even_or_odd(number) {
+ 	if (number % 2 == 0) {
+ 		console.log("Even");
+ 	} else {
+ 		console.log("Odd");
+ 	}
+}
+
+even_or_odd(2);
+even_or_odd(0);
+even_or_odd(7);
+even_or_odd(1);
