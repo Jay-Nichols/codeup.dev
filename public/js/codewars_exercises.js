@@ -451,3 +451,78 @@ even_or_odd(2);
 even_or_odd(0);
 even_or_odd(7);
 even_or_odd(1);
+
+
+// Create a method is_uppercase() to see whether the string is ALL CAPS. For example:
+
+// Corner Cases
+
+// For simplicity, you will not be tested on the ability to handle corner cases (e.g. "%*&#()%&^#" or similar strings containing alphabetical characters at all) - an ALL CAPS (uppercase) string will simply be defined as one containing no lowercase letters. Therefore, according to this definition, strings with no alphabetical characters (like the one above) should return True.
+
+
+function isUpperCase(string) {
+	if (string == string.toUpperCase()) {
+		console.log('true');
+	} else {
+		console.log('false');
+	}
+}
+
+isUpperCase('c');
+isUpperCase('C');
+isUpperCase('hello I AM DONALD');
+
+
+
+// We want an array, but not just any old array, an array with contents!
+
+// Write a function that produces an array with the numbers 0 to N-1 in it.
+
+// For example, the following code will result in an array containing the numbers 0 to 4:
+
+function array(N) {
+	var resultsArray = [];
+	for (var i = 0; i <= N - 1; i++){
+		resultsArray.push(i);
+	}
+		console.log(resultsArray);
+}
+
+array(5);
+array(4);
+
+
+//Mumbling
+// This time no story, no theory. The examples below show you how to write function accum:
+
+// Examples:
+
+// accum("abcd");    // "A-Bb-Ccc-Dddd"
+// accum("RqaEzty"); // "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// accum("cwAt");    // "C-Ww-Aaa-Tttt"
+// The parameter of accum is a string which includes only letters from a..z and A..Z.
+
+
+function accum(s) {
+	var stringAsArray = s.split('');
+	console.log(stringAsArray);
+	stringAsArray.forEach(function (element, index) {
+		var upperCase = element.toUpperCase();
+		var lowerCase = element.toLowerCase();
+		if (index === 0) {
+			console.log(upperCase);
+		} else {
+			console.log(upperCase + lowerCase);
+		}
+		
+	});
+}
+
+  
+
+accum("ZpglnRxqenU"); //Z-Pp-Ggg-Llll-Nnnnn etc...
+accum("NyffsGeyylB");
+accum("MjtkuBovqrU");
+accum("EvidjUnokmM");
+accum("HbideVbxncC");
+
