@@ -538,15 +538,16 @@ accum("HbideVbxncC");
 // l r  
 // l l  
 // o d
+
 // A few things to note:
 
 // There should be one space in between the two characters
 // You don't have to modify the case (i.e. no need to change to upper or lower)
 // If one string is longer than the other, there should be a space where the character would be
-
+console.log("---------------------");
 function transposeTwoStrings(arr){
-	arr.forEach(function (element) {
-		console.log(element);
+	arr.forEach(function (word) {
+		console.log(word.charAt(0) + " " + word.charAt(1));
 	})
 }
 
