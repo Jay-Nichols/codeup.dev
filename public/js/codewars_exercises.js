@@ -640,19 +640,16 @@ function iTri(s){
 	if (s == 0) {
 		console.log('Starting Line... Good Luck!');
 	} else if (s <= 2.4) {
-		console.log("Swim: " + (total - s) + " to go!");
+		console.log("Swim: " + (total - s).toFixed(2) + " to go!");
 	} else if (s > 2.4 && s < (2.4 + 112)) {
-		console.log("Bike: " + (total - s) + " to go!");
+		console.log("Bike: " + (total - s).toFixed(2) + " to go!");
 	} else if (s > (total - 10)) {
-		console.log("Run: " + (total - s) + " to go!");
+		console.log("Run: " + (total - s).toFixed(2) + " to go!");
 	} else if (s <= (total - 10)) {
 		console.log("Run: nearly there.");
 	} else {
 		console.log("You're done! Stop running!");
 	}
-
-
-
 }
 
 
@@ -661,7 +658,62 @@ iTri(36);
 iTri(103.5);
 iTri(2);
 
+console.log("----------------")
 
+// Given an array of one's and zero's convert the equivalent binary value to an integer.
+
+// Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1
+
+// Examples:
+
+// Testing: [0, 0, 0, 1] ==> 1
+// Testing: [0, 0, 1, 0] ==> 2
+// Testing: [0, 1, 0, 1] ==> 5
+// Testing: [1, 0, 0, 1] ==> 9
+// Testing: [0, 0, 1, 0] ==> 2
+// Testing: [0, 1, 1, 0] ==> 6
+// Testing: [1, 1, 1, 1] ==> 15
+// Testing: [1, 0, 1, 1] ==> 11
+
+function binaryArrayToNumber(arr) {
+  console.log(arr.reduce((a, b) => a << 1 | b ));
+}
+
+
+binaryArrayToNumber([0,0,0,1]);
+binaryArrayToNumber([0,0,1,0]);
+binaryArrayToNumber([1,1,1,1]);
+binaryArrayToNumber([0,1,1,0]);
+
+
+console.log("-----------------------");
+
+
+// You've just finished writing the last chapter for your novel when a virus suddenly infects your document. It has swapped the 'i's and 'e's in 'ei' words and capitalised random letters. Write a function which will:
+
+// a) remove the spelling errors in 'ei' words. (Example of 'ei' words: their, caffeine, deceive, weight)
+
+// b) only capitalise the first letter of each sentence. Make sure the rest of the sentence is in lower case.
+
+// Example: He haD iEght ShOTs of CAffIEne. --> He had eight shots of caffeine.
+
+
+
+function proofread(str) { 
+	var i = 0;
+	var character = '';
+
+	while (i <= str.length) {
+		character = str.charAt(i);
+		if (character = character.toUpperCase()) {
+			var lowerCase = character.toLowerCase();
+			console.log(lowerCase);
+		}
+	} 
+	i++;
+} 
+
+proofread("ShE deCIeved HiM.");
 
 
 
