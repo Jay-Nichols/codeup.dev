@@ -58,12 +58,12 @@ if(!empty($_POST)) {
     array_push($errors, 'An error occurred: ' . $e->getMessage());
   }
   try {
-    $date_established = Input::getString('date_established');
+    $date_established = Input::getDate('date_established');
   } catch (Exception $e) {
     array_push($errors, 'An error occurred' . $e->getMessage());
   } 
   try {
-    $area_in_acres = Input::getString('area_in_acres');
+    $area_in_acres = Input::getNumber('area_in_acres');
   } catch (InvalidArgumentException $e) {
     array_push($errors, 'An error occurred: ' . $e->getMessage());
   } catch (OutOfRangeException $e) {
