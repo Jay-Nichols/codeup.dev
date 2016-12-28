@@ -688,32 +688,140 @@ binaryArrayToNumber([0,1,1,0]);
 
 console.log("-----------------------");
 
+// In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
 
-// You've just finished writing the last chapter for your novel when a virus suddenly infects your document. It has swapped the 'i's and 'e's in 'ei' words and capitalised random letters. Write a function which will:
+function highAndLow(numbers){
+	var finalArray = [];
+	var arrayNumbers = [];
+	var numbersAsStringsArray = numbers.split(" ");
+	console.log(numbersAsStringsArray);
+	for (var i = 0; i < numbersAsStringsArray.length; i++) {
+		arrayNumbers.push(parseInt(numbersAsStringsArray[i]));
+	}
+	console.log(arrayNumbers);
+	var sortedArray = arrayNumbers.sort(function(a, b) {return b - a});
+	var reversedArray = sortedArray.reverse();
+	console.log(sortedArray);
+	var highestNumber = sortedArray[sortedArray.length - 1];
+	var lowestNumber = sortedArray[0];
+	console.log(highestNumber + " " + lowestNumber);
+	finalArray.push(highestNumber, lowestNumber);
+	console.log(finalArray);
+	var finalAnswer = finalArray.join(" ");
+	console.log(finalAnswer);
 
-// a) remove the spelling errors in 'ei' words. (Example of 'ei' words: their, caffeine, deceive, weight)
-
-// b) only capitalise the first letter of each sentence. Make sure the rest of the sentence is in lower case.
-
-// Example: He haD iEght ShOTs of CAffIEne. --> He had eight shots of caffeine.
+}
 
 
+highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6");
+highAndLow("1 -1");
+highAndLow("1 1");
 
-function proofread(str) { 
+
+console.log("---------------------");
+
+// Write a function generateIntegers that accepts a single argument n and generates an array containing the integers from 0 to n inclusive.
+
+// For example, generateIntegers(3) should return [0, 1, 2, 3].
+
+// n can be any integer greater than or equal to 0.
+
+function generateIntegers(n) {
+	var answerArray = [];
 	var i = 0;
-	var character = '';
+	while (i <= n){
+		answerArray.push(i);
+		i++;
+	}
+	console.log(answerArray);
+  
+};
 
-	while (i <= str.length) {
-		character = str.charAt(i);
-		if (character = character.toUpperCase()) {
-			var lowerCase = character.toLowerCase();
-			console.log(lowerCase);
-		}
-	} 
-	i++;
-} 
+generateIntegers(3); //should return [0, 1, 2, 3]);
 
-proofread("ShE deCIeved HiM.");
+
+console.log("----------------");
+
+// Should be easy, begin by looking at the code. Debug the code and the functions should work.
+
+// There are three functions:
+// Multiplication (x)
+// Addition (+)
+// and
+// Reverse (!esreveR)
+
+function multi(arr) {
+	console.log(arr[0] * arr[1] * arr[2]);
+  	
+}
+function add(arr) {
+  	console.log(arr[0] + arr[1] + arr[2]);
+}
+function reverse(str) {
+	console.log(str.split("").reverse().join(""));
+  	// var splitString = str.split("");
+  	// console.log(splitString);
+  	// var reverseArray = splitString.reverse();
+  	// console.log(reverseArray);
+  	// var joinedArray = reverseArray.join("");
+  	// console.log(joinedArray);
+}
+
+multi([5, 1, 5]); //should equal 25);
+add([9, 8, 5]); //should equal 22);
+reverse("reverse");
+
+
+console.log("----------------");
+
+// Your task is to return how many times a string contains a given character.
+
+// The function takes a string(inputS) as a paremeter and a char(charS) which is the character that you will have to find and count.
+
+// For example, if you get an input string "Hello world" and the character to find is "o", return 2.
+
+function stringCounter(inputS, charS){
+  console.log(inputS.split(charS).length-1);
+}
+
+
+
+stringCounter("Hello World!","o"); //should return 2;
+stringCounter("Do you like Harry Potter?","?"); //should return 1;
+stringCounter("abcdefg","a"); //should return 1);
+
+
+console.log("-------------------");
+
+// You will be given an array of strings which will include both integers and characters.
+
+// Return an array of length 2 with a[0] representing the mean of the integers to a single decimal place. There will always be 10 integers and 10 characters. Create a single string with the characters and return it as a[1] while maintaining the original order.
+
+// lst = ['u', '6', 'd', '1', 'i', 'w', '6', 's', 't', '4', 'a', '6', 'g', '1', '2', 'w', '8', 'o', '2', '0']
+// Here is an example of your return
+
+// [3.6, 'udiwstagwo']
+
+function mean(lst){
+  var emptyArray = [];
+  for (var i = 0; i < lst.length; i++){
+  	if (!isNaN(i)) {
+  		emptyArray.push(i);
+  	}
+  		console.log(emptyArray);
+  }
+}
+
+var lst1 = ['u', '6', 'd', '1', 'i', 'w', '6', 's', 't', '4', 'a', '6', 'g', '1', '2', 'w', '8', 'o', '2', '0'];
+mean(lst1); //should get [3.6, 'udiwstagwo']);
+var lst2 = ['0', 'c', '7', 'x', '6', '2', '3', '5', 'w', '7', '0', 'y', 'v', 'u', 'h', 'i', 'n', 'u', '0', '0'];
+mean(lst2); //should get [3.0, 'cxwyvuhinu']);
+var lst3 = ['0', 'u', 'a', 'y', '0', 'a', '9', 'q', '3', 'v', 'g', '7', '6', '4', 'y', 'd', '8', '6', '0', 'd'];
+mean(lst3); //should get [4.3, 'uayaqvgydd']);
+var lst4 = ['s', 'n', '9', 'l', '0', 'm', 'i', 'z', '9', '7', 'y', '4', 'z', '3', '3', 'k', '4', '1', '0', 'k'];
+mean(lst4); //should get [4.0, 'snlmizyzkk']);
+var lst5 = ['5', 'v', 'u', 'k', '8', '4', '9', 'b', '9', 'g', '5', 'z', '3', 'f', '6', 'u', 'i', '6', '6', 't'];
+mean(lst5); //should get [6.1, 'vukbgzfuit']);
 
 
 
