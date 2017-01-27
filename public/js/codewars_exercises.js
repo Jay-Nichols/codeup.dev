@@ -791,37 +791,46 @@ stringCounter("Do you like Harry Potter?","?"); //should return 1;
 stringCounter("abcdefg","a"); //should return 1);
 
 
-console.log("-------------------");
+console.log("--------------------");
 
-// You will be given an array of strings which will include both integers and characters.
+// Exponential/scientific notation is used to write very large or small numbers in JavaScript. It uses positive and negative exponents to write multiples and submultiples of 10 and simplifies numbers by getting rid of zeros. If a number greater than 21 digits, in JavaScript, it is displayed in exponential notation and if you try to get the length of it by converting to the string you would get wrong number of length because of the specific way of its display.
 
-// Return an array of length 2 with a[0] representing the mean of the integers to a single decimal place. There will always be 10 integers and 10 characters. Create a single string with the characters and return it as a[1] while maintaining the original order.
+// Write a function which returns the number of digits in any number with more than 21 digits. If the function is passed a string or a number with 21 or fewer digits it should return "wrong input".
 
-// lst = ['u', '6', 'd', '1', 'i', 'w', '6', 's', 't', '4', 'a', '6', 'g', '1', '2', 'w', '8', 'o', '2', '0']
-// Here is an example of your return
+// For example: If input number is 9000000000000000000000, then it should return number of digits, in this case 22. If numbers are 222222222 or "5263" which number of digits are less than 21 or "asdf///" which is not a number then it should return string 'wrong input'.
 
-// [3.6, 'udiwstagwo']
-
-function mean(lst){
-  var emptyArray = [];
-  for (var i = 0; i < lst.length; i++){
-  	if (!isNaN(i)) {
-  		emptyArray.push(i);
-  	}
-  		console.log(emptyArray);
-  }
+function getNumberLength(n){
+	var lengthOfNumber = Math.floor(Math.log(n) / Math.LN10 + 1)
+	if (lengthOfNumber > 21) {
+		console.log(lengthOfNumber);
+	} else {
+		console.log("wrong input");
+	}
 }
 
-var lst1 = ['u', '6', 'd', '1', 'i', 'w', '6', 's', 't', '4', 'a', '6', 'g', '1', '2', 'w', '8', 'o', '2', '0'];
-mean(lst1); //should get [3.6, 'udiwstagwo']);
-var lst2 = ['0', 'c', '7', 'x', '6', '2', '3', '5', 'w', '7', '0', 'y', 'v', 'u', 'h', 'i', 'n', 'u', '0', '0'];
-mean(lst2); //should get [3.0, 'cxwyvuhinu']);
-var lst3 = ['0', 'u', 'a', 'y', '0', 'a', '9', 'q', '3', 'v', 'g', '7', '6', '4', 'y', 'd', '8', '6', '0', 'd'];
-mean(lst3); //should get [4.3, 'uayaqvgydd']);
-var lst4 = ['s', 'n', '9', 'l', '0', 'm', 'i', 'z', '9', '7', 'y', '4', 'z', '3', '3', 'k', '4', '1', '0', 'k'];
-mean(lst4); //should get [4.0, 'snlmizyzkk']);
-var lst5 = ['5', 'v', 'u', 'k', '8', '4', '9', 'b', '9', 'g', '5', 'z', '3', 'f', '6', 'u', 'i', '6', '6', 't'];
-mean(lst5); //should get [6.1, 'vukbgzfuit']);
+
+getNumberLength(7005623021525000000000000000);
+getNumberLength(5236200000000000);
+
+
+console.log("----------------");
+
+
+// Determine the area of the largest square that can fit inside a circle with radius r.
+
+function areaLargestSquare(r) {
+	var diameter = r + r;
+	var squaredLengthOfSide = (diameter * diameter) / 2;
+	var lengthOfSide = Math.sqrt(squaredLengthOfSide);
+	var areaOfSquare = Math.pow(lengthOfSide, 2);
+	var area = Math.round(areaOfSquare);
+	console.log(area);
+}
+
+
+areaLargestSquare(5); //answer should be 50
+areaLargestSquare(7); //answer should be 98;
+areaLargestSquare(15); //answer should be  450;
 
 
 
