@@ -30,6 +30,8 @@ $test = new Model();
 $test->name = 'Jay Nichols';
 $test->age = 37;
 $test->gender = 'M';
+$test->instrument = "guitar";
 
 var_dump($test);
+
 
