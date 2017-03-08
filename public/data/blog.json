@@ -16,5 +16,15 @@
             "sugar"
         ],
         "date": "February 14, 2015"
+    },
+    {
+        "title": "The Third Post",
+        "content": "You should really read 'Canis Major'",
+        "categories": [
+            "shameless self-promotion",
+            "making $"
+        ],
+        "date": "December 14, 2016"
+
     }
 ]
