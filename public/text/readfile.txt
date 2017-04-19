@@ -1,0 +1,3 @@
+This is just a readfile
+Nothing else is on here.
+When you use the readfile function in a php file, it will print out the text you see here. Right next to that text will be the number of characters in that text
