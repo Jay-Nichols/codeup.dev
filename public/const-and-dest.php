@@ -54,6 +54,12 @@ Class Human
 {
 	private $genusName;
 	private $speciesName;
+	protected static $limbs = 4;
+
+	public static function getLimbs()
+	{
+		return static::$limbs;
+	}
 
 	public function __construct($genusName, $speciesName)
 	{
@@ -91,6 +97,8 @@ Class Jay extends Human
 {
 	public $coder;
 	private $info;
+	protected static $limbs = 5;
+
 
 	public function __construct($genusName, $speciesName, $coder)
 	{
@@ -144,5 +152,8 @@ echo $jay->name . PHP_EOL;
 echo $jay->instrument1 . PHP_EOL;
 echo $jay->instrument2 . PHP_EOL;
 echo $jay->instrument3 . PHP_EOL;
+
+echo Human::getLimbs() . PHP_EOL;
+echo Jay::getLimbs() . PHP_EOL;
 
 ?>
