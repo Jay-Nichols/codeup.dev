@@ -90,6 +90,7 @@ Class Human
 Class Jay extends Human
 {
 	public $coder;
+	private $info;
 
 	public function __construct($genusName, $speciesName, $coder)
 	{
@@ -100,6 +101,20 @@ Class Jay extends Human
 	public function getScientificName()
 	{
 		return $this->getGenusName() . " " . $this->getSpeciesName();
+	}
+
+	public function __set($name, $value)
+	{
+		return $this->info[$name] = $value;
+	}
+
+	public function __get($name)
+	{
+		if (array_key_exists($name, $this->info)) {
+			return $this->info[$name];
+		}
+
+		return null;
 	}
 }
 
@@ -120,5 +135,14 @@ $person = new Human("  Homo   ", "    sapien    ");
 echo $person->scientificName() . PHP_EOL;
 $jay = new Jay("  Homo  ", " sapien  ", "sort of");
 echo $jay->getScientificName() . PHP_EOL;
+//put some data in info array using the setter in the Jay class
+$jay->name = "Jay";
+$jay->instrument1 = "guitar";
+$jay->instrument2 = "piano";
+//now get the data from the array 
+echo $jay->name . PHP_EOL;
+echo $jay->instrument1 . PHP_EOL;
+echo $jay->instrument2 . PHP_EOL;
+echo $jay->instrument3 . PHP_EOL;
 
 ?>
