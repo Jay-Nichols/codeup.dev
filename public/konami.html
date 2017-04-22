@@ -16,7 +16,7 @@
 
 	<div>
 		
-		<input type="text" id="textfield" name="textfield">
+		<input type="text" id="textfield" name="textfield" readonly>
 		
 	</div>
 
@@ -35,9 +35,11 @@ $('#textfield').keyup(function(event){
 
 	
 	if (event.keyCode == codeArray[i]) {
-		i++;} else {
-			i = 0; alert("Wrong!");
-		} 
+		i++;
+	} else {
+		i = 0; 
+		alert("Wrong!");
+	} 
 
 	console.log(i, codeArray.length);
 
