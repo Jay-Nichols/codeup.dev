@@ -73,17 +73,19 @@
         });
 
         // TODO: "Show It" should make the box appear
-
+)
+    
         $('#btn-all').click(function() {
             $('#animate-box').animate({
                 left: "100px",
                 width: "+=50%"
-            }).animate ({
+            }, 1000).animate ({
                 opacity: 0
-            }).animate ({
+            }, 1000).animate ({
                 opacity: 1,
-                left: "-=50%"
-            })
+                left: "0px",
+                width: "-=50%"
+            }, 1000)
         })
 
         // TODO: "Animate All" should use an animation stack to:
